@@ -1,0 +1,38 @@
+<?php
+require '../commons/db.php';
+
+var_dump($_SERVER['REQUEST_METHOD']);
+var_dump($_POST);
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (
+        trim($_POST['title']) != '' &&
+        trim($_POST['user_id']) != '' &&
+        trim($_POST['category_id']) != ''
+    ) {
+
+        try {
+            $q = "INSERT INTO task.task(title, description, due_date, completed, user_id, category_id)";
+            $q = $q . " VALUES (:title, :description, :due_date, :completed
+            , :user_id, :category_id );";
+            $stmt = $db->prepare($q);
+            $stmt->execute([
+                "title" => $_POST["title"],
+                "description" => $_POST["description"],
+                "due_date" => $_POST["due_date"],
+                "completed" => $_POST["complete"],
+                "user_id" => $_POST["user_id"],
+                "category_id" => $_POST["category_id"]
+            ]);
+        } catch (PDOException $e) {
+            echo 'Error en la conexión ' . $e->getMessage();
+            exit();
+        }
+
+        header("Location: /task-manager-mc/");
+
+    } else {
+        echo 'Nooooooooooo pasa';
+    }
+}
+
+?>
