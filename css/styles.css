@@ -1,23 +1,21 @@
+/* General */
 body {
-    font-family: sans-serif;
-    background-color: #f9f9f9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f8;
     padding: 2rem;
+    margin: 0;
 }
 
 main {
-    max-width: 600px;
+    max-width: 700px;
     margin: auto;
     background: white;
     padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-#div-form {
-    display: flex;
-    gap: 10px;
-}
-
+/* Lista de tareas */
 ul {
     list-style: none;
     padding: 0;
@@ -26,69 +24,102 @@ ul {
 li {
     display: flex;
     justify-content: space-between;
-    background: #eee;
+    align-items: center;
+    background: #e0e0e0;
     margin-top: 1rem;
     padding: 1rem;
-    border-radius: 5px;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+li:hover {
+    background: #d4d4d4;
 }
 
 .task-ready {
-    background: #88ff82;
+    background: #c8f7c5;
 }
 
-.edit-btn {
-    margin-right: 5px;
-    border-radius: 5px;
-    padding: 5px;
-    border-color: white;
-    background-color: blue;
-    color: #f9f9f9;
+.task-ready span {
+    text-decoration: line-through;
+    color: #3c763d;
 }
 
-.delete-btn {
-    background-color: red;
+/* Botones */
+button {
+    padding: 6px 12px;
+    border: none;
     border-radius: 5px;
-    padding: 5px;
-    border-color: white;
-    color: #f9f9f9;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
 }
 
 .complete-btn {
-    background-color: rgb(59, 161, 0);
-    border-radius: 5px;
-    padding: 5px;
-    border-color: white;
-    color: #f9f9f9;
+    background-color: #4CAF50;
+    color: white;
+    margin-right: 6px;
 }
 
+.complete-btn:hover {
+    background-color: #45a049;
+}
+
+.edit-btn {
+    background-color: #2196F3;
+    color: white;
+    margin-right: 6px;
+}
+
+.edit-btn:hover {
+    background-color: #0b7dda;
+}
+
+.delete-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+.delete-btn:hover {
+    background-color: #da190b;
+}
+
+/* Formulario */
 .my-form {
-    max-width: 500px;
-    margin: 2rem auto;
-    padding: 1.5rem;
-    background: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 1);
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
-    font-family: sans-serif;
+    gap: 1rem;
+    background: #ffffff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
 }
 
 .field {
     display: flex;
     flex-direction: column;
-    gap: 0.3rem;
+    gap: 0.5rem;
     font-size: 14px;
     color: #333;
 }
 
+.field input[type="text"],
+.field input[type="date"],
+.field input[type="number"] {
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
 
 .field input:invalid {
-    border-color: #dc3545;
+    border-color: #e74c3c;
 }
 
 .field input:valid {
-    border-color: #28a745;
+    border-color: #2ecc71;
 }
 
 .cbx-g {
@@ -103,7 +134,12 @@ li {
     color: #333;
 }
 
-.my-form button {
+.req-field {
+    color: red;
+    font-weight: bold;
+}
+
+.my-form button[type="submit"] {
     background-color: #007bff;
     color: white;
     padding: 0.6rem 1.2rem;
@@ -113,7 +149,8 @@ li {
     cursor: pointer;
     transition: background-color 0.3s;
 }
-.my-form button:hover{
+
+.my-form button[type="submit"]:hover {
     background-color: #0056b3;
 }
 .field input[type="text"],
@@ -129,4 +166,48 @@ li {
 .req-field {
     color: red;
     font-weight: bold;
+}
+
+/* Botón Completar - Verde */
+.complete-btn {
+    background-color: #28a745;
+    color: #fff;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    margin-right: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.complete-btn:hover {
+    background-color: #218838;
+}
+
+/* Botón Editar - Amarillo */
+.edit-btn {
+    background-color: #ffc107;
+    color: #212529;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    margin-right: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.edit-btn:hover {
+    background-color: #e0a800;
+}
+
+/* Botón Eliminar - Rojo */
+.delete-btn {
+    background-color: #dc3545;
+    color: #fff;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.delete-btn:hover {
+    background-color: #c82333;
 }
