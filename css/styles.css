@@ -185,8 +185,8 @@ button {
 
 /* Botón Editar - Amarillo */
 .edit-btn {
-    background-color: #ffc107;
-    color: #212529;
+    background-color: #007bff;
+    color: white;
     padding: 6px 12px;
     border: none;
     border-radius: 6px;
@@ -210,4 +210,17 @@ button {
 }
 .delete-btn:hover {
     background-color: #c82333;
+}
+/* Estilos para el botón "Desmarcar" */
+.undo-btn {
+    background-color: #9c9c9c;  /* Color amarillo */
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}
+
+.undo-btn:hover {
+    background-color: #4b4b4b;
 }
