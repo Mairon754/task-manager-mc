@@ -309,6 +309,6 @@ document.addEventListener('DOMContentLoaded', () => {
             form.submit(); // Se enviará al create.php como lo tienes en el HTML
         }
     });
-    renderCategories();
+
     renderTasks();
 });
